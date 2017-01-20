@@ -12,7 +12,7 @@ app.controller('checkWeatherController', function ($scope,  $http) {
         $http.get("http://api.openweathermap.org/data/2.5/weather?q="+$scope.search+"&APPID=170fb5209f8eb67ee44eb90ccc45b4eb").then(
             function (response) {
                 $scope.resultResponse = {
-                    name:$scope.search,
+                    name:$scope.search.split(',')[0],
                     code:response.data.sys.country,
                     temp: Math.round(response.data.main.temp - 273),
                     description:response.data.weather[0].description,
