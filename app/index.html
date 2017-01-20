@@ -16,23 +16,35 @@
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div ng-controller="checkWeatherController">
-    <input type="text" ng-model="search">
-    <button ng-click="getWeather()" >Get weather</button>
-    <input type="NUMBER" value="3" size="2">
-    <div>
-        <div ng-repeat="result in results">
-            {{result.name}} {{result.code}}{{result.img}} {{result.temp}}{{result.description}}<img src="{{result.iconUrl}}">
-          </span>
-          </span>
-
+  <div class="container" class="form-control" ng-controller="checkWeatherController">
+    <div class="row">
+      <div class="col-sm-3">
+        <input type="text" class="form-control" ng-model="search" placeholder="Enter city">
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-primary" ng-click="getWeather()" >Get weather</button>
+      </div>
+      <div class="col-xs-2">
+        <input type="number" class="form-control" placeholder="Rows number" value="3">
+      </div>
+    </div>
+    <div class="result-list">
+      <div class="row">
+        <div class="col-lg-3">City</div>
+        <div class="col-lg-2">Country</div>
+        <div class="col-lg-3">Temperature</div>
+        <div class="col-lg-3">Sky</div>
+        <div class="col-lg-1"></div>
+      </div>
+        <div class="row row-eq-height" ng-repeat="result in results">
+          <div class="col-sm-3">{{result.name}}</div>
+          <div class="col-sm-2">{{result.code}}</div>
+          <div class="col-sm-3">{{result.temp}}</div>
+          <div class="col-sm-3">{{result.description}}</div>
+          <div class="col-sm-1"><img src="{{result.iconUrl}}"></div>
         </div>
-      <img src="{{iconUrl}}">
     </div>
   </div>
-
-
-
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
