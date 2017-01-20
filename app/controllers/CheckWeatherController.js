@@ -9,8 +9,7 @@ app.controller('checkWeatherController', function ($scope,  $http) {
                 $scope.results.push(response.data.sys.country);
                 $scope.results.push(response.data.main.temp-273);
                 $scope.results.push(response.data.weather[0].description);
-                $scope.results.push(response.data.weather.id);
-
+                $scope.iconUrl="http://openweathermap.org/img/w/"+response.data.weather[0].icon+".png";
             }
         )
     }
