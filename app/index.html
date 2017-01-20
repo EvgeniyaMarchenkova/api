@@ -18,9 +18,12 @@
     <button ng-click="getWeather()" >Get weather</button>
     <input type="NUMBER" value="3" size="2">
     <div>
-        <span ng-repeat="result in results">
-         {{result}}
-        </span>
+        <div ng-repeat="result in results">
+            {{result.name}} {{result.code}}{{result.img}} {{result.temp}}{{result.description}}<img src="{{result.iconUrl}}">
+          </span>
+          </span>
+
+        </div>
       <img src="{{iconUrl}}">
     </div>
   </div>
