@@ -19,17 +19,13 @@
   <div ng-controller="checkWeatherController">
     <input type="text" ng-model="search">
     <button ng-click="getWeather()" >Get weather</button>
-    <input type="NUMBER" value="3" size="2" ng-model="itemNumber">
+    <input type="NUMBER"  size="2" ng-model="itemNumber" >
     <div>
         <div ng-repeat="result in results">
             {{result.name}} {{result.code}}{{result.img}} {{result.temp}}{{result.description}}<img src="{{result.iconUrl}}">
         </div>
     </div>
   </div>
-
-
-
-
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
