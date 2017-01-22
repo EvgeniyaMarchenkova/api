@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </head>
 <body>
   <div class="container" class="form-control" ng-controller="checkWeatherController">
@@ -22,7 +23,7 @@
           <input type="text" id="Autocomplete" class="form-control" my-autocomplete="search" details="details" options="options"/>
       </div>
       <div class="col-sm-2">
-        <button class="btn btn-primary" ng-click="getWeather()" >Get weather</button>
+        <button class="btn btn-primary" ng-click="httpRequestFactory.getWeather(search, itemNumber)" >Get weather</button>
       </div>
       <div class="col-xs-2">
         <input type="number" class="form-control" placeholder="Rows number" ng-model="itemNumber">
@@ -36,14 +37,15 @@
         <div class="col-lg-3">Sky</div>
         <div class="col-lg-1"></div>
       </div>
-        <div class="row row-eq-height" ng-repeat="result in results">
+        <div class="row row-eq-height" ng-repeat="result in httpRequestFactory.results">
           <div class="col-sm-3">{{result.name}}</div>
           <div class="col-sm-2">{{result.code}}</div>
-          <div class="col-sm-3">{{result.temp}}°C</div>
+        <div class="col-sm-3">{{result.temp}}°C</div>
           <div class="col-sm-3">{{result.description}}</div>
           <div class="col-sm-1"><img src="{{result.iconUrl}}"></div>
         </div>
     </div>
+
   </div>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
@@ -53,6 +55,7 @@
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+  <script src="factory/httpRequestFactory.js"></script>
   <script src="controllers/CheckWeatherController.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAQiTYMzqNRW3zQzQVOJCQkrF_kPStIs0c"></script>
   <script src="directives/MyAutocomplete.js"></script>
